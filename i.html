@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EXPLORE INDIA – Discover Incredible India</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg sticky-top bg-white shadow-sm py-3">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-green" href="#home">EXPLORE <span class="text-saffron">INDIA</span></a>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#destinations">Destinations</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item"><a class="btn btn-saffron btn-sm px-3 rounded-pill" href="#figma-section">Live Figma UI</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 1. HOME (HERO) -->
+  <header id="home" class="hero d-flex align-items-center text-center text-white">
+    <div class="container">
+      <p class="text-uppercase letter-spacing mb-2 text-warning fw-semibold">Discover Incredible India</p>
+      <h1 class="display-3 fw-bold mb-3">Discover the Beauty of India</h1>
+      <p class="lead mx-auto mb-4" style="max-width:600px;">From royal palaces and snow-capped Himalayas to serene backwaters and timeless heritage.</p>
+      <a href="#destinations" class="btn btn-saffron btn-lg px-4 rounded-pill">Explore Destinations</a>
+    </div>
+  </header>
+
+  <!-- 2. DESTINATIONS -->
+  <section id="destinations" class="py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="text-green fw-bold">Popular Destinations</h2>
+        <p class="text-muted">Click "Explore More" on any destination for attractions, best time, and local culture.</p>
+      </div>
+      <div class="row g-4" id="dest-grid"></div>
+    </div>
+  </section>
+
+  <!-- 3. EXPLORE MORE (INTERACTIVE MODAL) -->
+  <div class="modal fade" id="exploreModal" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content border-0 rounded-4 overflow-hidden">
+        <img id="m-img" class="w-100" style="height:280px;object-fit:cover;" alt="">
+        <div class="modal-body p-4">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <h3 id="m-title" class="text-green fw-bold mb-0"></h3>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <p id="m-desc" class="text-muted"></p>
+          <div class="row g-3 mt-2">
+            <div class="col-md-4"><div class="p-3 bg-cream rounded-3"><strong>Famous Attractions</strong><p id="m-attr" class="small mb-0 mt-1"></p></div></div>
+            <div class="col-md-4"><div class="p-3 bg-cream rounded-3"><strong>Best Time to Visit</strong><p id="m-time" class="small mb-0 mt-1"></p></div></div>
+            <div class="col-md-4"><div class="p-3 bg-cream rounded-3"><strong>Local Culture</strong><p id="m-cult" class="small mb-0 mt-1"></p></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT + INTERACTIVE FIGMA EMBED SECTION -->
+  <section id="about" class="py-5 bg-white">
+    <div class="container" id="figma-section">
+      <div class="text-center mb-4">
+        <h2 class="text-green fw-bold">About & Interactive Figma Prototype</h2>
+        <p class="text-muted mx-auto" style="max-width:650px;">Interact directly with our clickable 5-screen Figma design right inside this webpage.</p>
+      </div>
+      <div class="figma-box shadow rounded-4 overflow-hidden">
+        <!-- REPLACE THE URL BELOW WITH YOUR FIGMA SHARE/PROTOTYPE LINK -->
+        <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/UvqdW1zfiavLNQicYpCbWe/Untitled?node-id=2-2&p=f&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2%3A2&embed-host=share" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. GALLERY -->
+  <section id="gallery" class="py-5">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2 class="text-green fw-bold">Incredible India Gallery</h2>
+        <div class="d-flex justify-content-center flex-wrap gap-2 mt-3" id="filters">
+          <button class="btn btn-green btn-sm rounded-pill px-3 active" onclick="renderGallery('All', this)">All</button>
+          <button class="btn btn-outline-success btn-sm rounded-pill px-3" onclick="renderGallery('Heritage', this)">Heritage</button>
+          <button class="btn btn-outline-success btn-sm rounded-pill px-3" onclick="renderGallery('Nature', this)">Nature</button>
+          <button class="btn btn-outline-success btn-sm rounded-pill px-3" onclick="renderGallery('Beaches', this)">Beaches</button>
+          <button class="btn btn-outline-success btn-sm rounded-pill px-3" onclick="renderGallery('Spiritual', this)">Spiritual</button>
+        </div>
+      </div>
+      <div class="row g-3" id="gallery-grid"></div>
+    </div>
+  </section>
+
+  <!-- 5. CONTACT -->
+  <section id="contact" class="py-5 bg-white">
+    <div class="container">
+      <h2 class="text-green fw-bold text-center mb-4">Plan Your Trip</h2>
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-5">
+          <div class="p-4 bg-green text-white rounded-4 h-100">
+            <h4 class="mb-3">Contact Details</h4>
+            <p class="small mb-2"><strong>Email:</strong> hello@exploreindia.in</p>
+            <p class="small mb-2"><strong>Phone:</strong> +91 98765 43210</p>
+            <p class="small mb-0"><strong>Office:</strong> Connaught Place, New Delhi, India</p>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <form id="enquiryForm" class="p-4 bg-cream rounded-4 shadow-sm">
+            <div class="row g-3">
+              <div class="col-md-6"><input type="text" class="form-control" placeholder="Your Name" required></div>
+              <div class="col-md-6"><input type="email" class="form-control" placeholder="Your Email" required></div>
+              <div class="col-12">
+                <select class="form-select" required>
+                  <option value="">Select Destination</option>
+                  <option>Agra</option><option>Jaipur</option><option>Kerala</option>
+                  <option>Kashmir</option><option>Goa</option><option>Varanasi</option>
+                </select>
+              </div>
+              <div class="col-12"><textarea class="form-control" rows="3" placeholder="Your Message" required></textarea></div>
+              <div class="col-12"><button type="submit" class="btn btn-saffron px-4 rounded-pill">Submit Enquiry</button></div>
+            </div>
+            <p id="form-msg" class="text-success small fw-semibold mt-3 mb-0 d-none">Thank you! Your travel enquiry has been received.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-green text-white text-center py-3">
+    <p class="small mb-0">© 2026 EXPLORE INDIA – Discover Incredible India. All Rights Reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const places = [
+      { name: "Agra", cat: "Heritage", img: "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=800", desc: "Home to the iconic Taj Mahal and grand Mughal architecture.", attr: "Taj Mahal, Agra Fort, Fatehpur Sikri", time: "Oct – Mar", cult: "Mughlai cuisine, marble inlay art, Petha sweets." },
+      { name: "Jaipur", cat: "Heritage", img: "https://images.unsplash.com/photo-1477587458883-47145ed94245?w=800", desc: "The Pink City famous for royal forts, palaces, and vibrant bazaars.", attr: "Hawa Mahal, Amer Fort, City Palace", time: "Nov – Feb", cult: "Rajasthani folk dance, block printing, Dal Baati Churma." },
+      { name: "Kerala", cat: "Nature", img: "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=800", desc: "God's Own Country with serene backwaters and lush tea hills.", attr: "Alleppey Backwaters, Munnar, Wayanad", time: "Sep – Mar", cult: "Kathakali dance, Ayurveda, traditional Sadya feast." },
+      { name: "Kashmir", cat: "Nature", img: "https://images.unsplash.com/photo-1595815771614-ade9d652a65d?w=800", desc: "Paradise on Earth known for alpine lakes and snow-clad valleys.", attr: "Dal Lake, Gulmarg, Pahalgam", time: "Apr – Oct", cult: "Pashmina weaving, Shikara rides, Wazwan & Kahwa tea." },
+      { name: "Goa", cat: "Beaches", img: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=800", desc: "Sun-kissed golden beaches, Portuguese heritage, and coastal vibes.", attr: "Baga Beach, Dudhsagar Falls, Old Goa", time: "Nov – Feb", cult: "Konkani music, Carnival festival, seafood curries." },
+      { name: "Varanasi", cat: "Spiritual", img: "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?w=800", desc: "One of the world's oldest living cities on the banks of the Ganga.", attr: "Dashashwamedh Ghat, Kashi Vishwanath, Sarnath", time: "Oct – Mar", cult: "Evening Ganga Aarti, Banarasi silk, classical music." }
+    ];
+
+    // Render 6 Destination Cards
+    document.getElementById('dest-grid').innerHTML = places.map((p, i) => `
+      <div class="col-md-6 col-lg-4">
+        <div class="card border-0 shadow-sm rounded-4 h-100 overflow-hidden card-hover">
+          <img src="${p.img}" class="card-img-top" alt="${p.name}">
+          <div class="card-body d-flex flex-column">
+            <h5 class="fw-bold text-green">${p.name}</h5>
+            <p class="small text-muted flex-grow-1">${p.desc}</p>
+            <button class="btn btn-saffron btn-sm rounded-pill align-self-start px-3" onclick="openDetails(${i})">Explore More</button>
+          </div>
+        </div>
+      </div>`).join('');
+
+    // Open Explore More Modal
+    function openDetails(i) {
+      const p = places[i];
+      ['title','desc','attr','time','cult'].forEach(k => document.getElementById('m-'+k).textContent = p[k === 'title' ? 'name' : k]);
+      document.getElementById('m-img').src = p.img;
+      new bootstrap.Modal(document.getElementById('exploreModal')).show();
+    }
+
+    // Filterable Gallery
+    function renderGallery(cat, btn) {
+      if (btn) {
+        document.querySelectorAll('#filters button').forEach(b => b.className = 'btn btn-outline-success btn-sm rounded-pill px-3');
+        btn.className = 'btn btn-green btn-sm rounded-pill px-3';
+      }
+      const list = cat === 'All' ? places : places.filter(p => p.cat === cat);
+      document.getElementById('gallery-grid').innerHTML = list.map(p => `
+        <div class="col-sm-6 col-lg-4">
+          <div class="position-relative rounded-4 overflow-hidden shadow-sm">
+            <img src="${p.img}" class="gallery-img w-100" alt="${p.name}">
+            <span class="badge bg-saffron position-absolute bottom-0 start-0 m-3">${p.name} • ${p.cat}</span>
+          </div>
+        </div>`).join('');
+    }
+    renderGallery('All');
+
+    // Contact Form Submit
+    document.getElementById('enquiryForm').addEventListener('submit', e => {
+      e.preventDefault();
+      document.getElementById('form-msg').classList.remove('d-none');
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>
